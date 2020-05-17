@@ -130,30 +130,30 @@ src/main/webapp   页面资源，js，css，图片等；非webapp一般没有此
 
 maven命令
 ==============
-清除项目编译信息:mvn clean   
+- 清除项目编译信息:mvn clean   
 清除项目编译信息，即：删除项目下的target目录。  
 一般用于，拿到了他人的代码后，不需要他人的编译信息，即target目录下东东  
 
 
-编译：mvn compile  
+- 编译：mvn compile  
 编译生成target目录，该目录下有一个classes目录，里面是编译好的java class文件(xxx.class)
 
 
-测试：mvn test  
+- 测试：mvn test  
 编译test，会在target目录下多一个test-classes目录，里面是编译好的java test class文件(xxx.class)  
 其实mvn，不仅重编译了classes，同时也编译了test-classes
 
 
-打包：mvn package  
+- 打包：mvn package  
 项目打包，成jar或war，具体是哪种通pom.xml来配置  
 打包的文件在target目录下  
 
 
-安装：mvn install  
+- 安装：mvn install  
 打包，并把打好的包装入本地仓库中  
 
 
-发布：mvn deploy  
+- 发布：mvn deploy  
 
 
 注意：执行mvn compile/test/package/install 命令后，如果target目录不存在，会自动创建
@@ -214,8 +214,8 @@ system		Y						Y						-						本地的,Maven仓库外的类库
 ```
 
 
-###一键构建
-==============
+一键构建
+---------------
 默认生命周期：compile、test、package、install、delpoy
 
 
