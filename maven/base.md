@@ -33,20 +33,20 @@ iead中使用maven
 ==============
 idea集成maven插件
 --------------
-1 确认电脑中安装了idea
-2 确认电脑中安装了maven
+1 确认电脑中安装了idea  
+2 确认电脑中安装了maven  
 > mvn -v
 
-打开idea首选项，左侧搜索maven，然后选中Maven，
-更改右侧的maven路径(maven home directory)，
-选择配置文件(settings flie)
+打开idea首选项，左侧搜索maven，然后选中Maven，  
+更改右侧的maven路径(maven home directory)，  
+选择配置文件(settings flie)  
 
 
 
 idea创建maven项目
 --------------
 - 使用骨架创建  
-注意：确保当前机器可以连网
+注意：确保当前机器可以连网  
 new project，左侧选中Maven，右侧勾选上Create from archetype
 
 - 使用骨架创建  
@@ -57,24 +57,24 @@ new project，左侧选中Maven，右侧不要勾选Create from archetype
 
 maven作用
 ==============
-依赖管理：maven工程对jar包的管理过程
-传统的java项目，jar包放在项目中；mavan开发的项目，jar包放在jar包仓库中，maven项目中只是放了jar包的坐标。
+依赖管理：maven工程对jar包的管理过程  
+传统的java项目，jar包放在项目中；mavan开发的项目，jar包放在jar包仓库中，maven项目中只是放了jar包的坐标。  
 
 
-一键构建
-我们的项目，往往要经历编译、测试、运行、打包、安装、部署等一第列过程。
-什么是构建？
-指项目从译、测试、运行、打包、安装、部署整个过程都交给maven进行管理。
-一键构建：指整个构建过程，使用maven一个命令可以轻松完成整个工作。
+一键构建  
+我们的项目，往往要经历编译、测试、运行、打包、安装、部署等一第列过程。  
+什么是构建？  
+指项目从译、测试、运行、打包、安装、部署整个过程都交给maven进行管理。  
+一键构建：指整个构建过程，使用maven一个命令可以轻松完成整个工作。  
 
 
 
 
 maven仓库种类：
 ==============
-一般有三种
+一般有三种  
 - 本地仓库 local  
-本地仓库位置可通过maven配置文件:MAVEN_HOME/conf/settings.xml中查找
+本地仓库位置可通过maven配置文件:MAVEN_HOME/conf/settings.xml中查找  
 ```
 <!-- localRepository
    | The path to the local repository maven will use to store artifacts.
@@ -87,17 +87,17 @@ maven仓库种类：
 <localRepository>D:\xxx\xxx</localRepository>
 ```
 
-- 远程仓库（私服） b2b  
-一般的公司，都会在内网中搭建自已的仓库(私服)，然后提前在私服中放好常用的jar包  
-maven查找jar包时，本地仓库没有时会从这个私服中下载，如果私服中也没有测去中央仓库下载到私服，再到本地仓库
+- 远程仓库（私服） b2b   
+一般的公司，都会在内网中搭建自已的仓库(私服)，然后提前在私服中放好常用的jar包    
+maven查找jar包时，本地仓库没有时会从这个私服中下载，如果私服中也没有测去中央仓库下载到私服，再到本地仓库  
 
 - 中央仓库 center  
 放置了几乎所有开源的jar包
 
 
 maven查找jar包的方式  
-个人开发时  
-maven工程-通过jar包位置，先去本地仓库中查找jar包，本地仓库也没有则会去中央仓库下载
+个人开发时   
+maven工程-通过jar包位置，先去本地仓库中查找jar包，本地仓库也没有则会去中央仓库下载  
 
 企业开发时：企业一般会有自已的远程仓库(私服)  
 maven工程-通过jar包位置，先去本地仓库中查找jar包，本地仓库没有则去远程仓库中下载，远程仓库也没有则会去中央仓库下载
@@ -107,63 +107,63 @@ maven工程-通过jar包位置，先去本地仓库中查找jar包，本地仓�
 
 maven标准目录结构
 ==============
-通常我们一个项目的代码，主要包含以下几个部分
-核心代码部分
-配置文件部分
-测试代码部分
-测试配置文件
+通常我们一个项目的代码，主要包含以下几个部分  
+核心代码部分  
+配置文件部分  
+测试代码部分  
+测试配置文件  
 
 - 普通的项目  
-项目名
-	src
-	config
-	resource
+项目名  
+	src  
+	config  
+	resource  
 
-- maven项目标准目录结构  
-src/main/java   核心代码部分
-src/main/resources  配置文件部分
-src/test/java   测试代码部分
-src/test/resources  测试配置文件
-src/main/webapp   页面资源，js，css，图片等；非webapp一般没有此目录
+- maven项目标准目录结构   
+src/main/java   核心代码部分  
+src/main/resources  配置文件部分  
+src/test/java   测试代码部分  
+src/test/resources  测试配置文件  
+src/main/webapp   页面资源，js，css，图片等；非webapp一般没有此目录  
 
 
 
 maven命令
 ==============
-清除项目编译信息:mvn clean 
-清除项目编译信息，即：删除项目下的target目录。
-一般用于，拿到了他人的代码后，不需要他人的编译信息，即target目录下东东
+清除项目编译信息:mvn clean   
+清除项目编译信息，即：删除项目下的target目录。  
+一般用于，拿到了他人的代码后，不需要他人的编译信息，即target目录下东东  
 
 
-编译：mvn compile
+编译：mvn compile  
 编译生成target目录，该目录下有一个classes目录，里面是编译好的java class文件(xxx.class)
 
 
-测试：mvn test
-编译test，会在target目录下多一个test-classes目录，里面是编译好的java test class文件(xxx.class)
+测试：mvn test  
+编译test，会在target目录下多一个test-classes目录，里面是编译好的java test class文件(xxx.class)  
 其实mvn，不仅重编译了classes，同时也编译了test-classes
 
 
-打包：mvn package
-项目打包，成jar或war，具体是哪种通pom.xml来配置
-打包的文件在target目录下
+打包：mvn package  
+项目打包，成jar或war，具体是哪种通pom.xml来配置  
+打包的文件在target目录下  
 
 
-安装：mvn install
-打包，并把打好的包装入本地仓库中
+安装：mvn install  
+打包，并把打好的包装入本地仓库中  
 
 
-发布：mvn deploy
+发布：mvn deploy  
 
 
 注意：执行mvn compile/test/package/install 命令后，如果target目录不存在，会自动创建
 
-也可结合clean与其它指令一起用
-如：
-先clean再package
-mvn clean package
-或带上更多参数
-mvn clean package -DskipTests
+也可结合clean与其它指令一起用  
+如：  
+先clean再package  
+mvn clean package  
+或带上更多参数  
+mvn clean package -DskipTests  
 ```
 在使用mvn package进行编译、打包时，Maven会执行src/test/java中的JUnit测试用例，有时为了跳过测试，会使用参数-DskipTests和-Dmaven.test.skip=true，这两个参数的主要区别是：
 
@@ -189,10 +189,10 @@ pom.xml
 
 
 ####依赖管理模型
-公司组织的名称：groupId
-项目名：artifactId
-版本号：version
-包的依赖范围：scope
+公司组织的名称：groupId  
+项目名：artifactId  
+版本号：version  
+包的依赖范围：scope  
 ```
 <dependency>
     <groupId>org.apache.flink</groupId>
@@ -202,8 +202,8 @@ pom.xml
 </dependency>
 ```
 
-包的依赖范围：scope
-默认scope为：compile
+包的依赖范围：scope  
+默认scope为：compile  
 ```
 依赖范围		对于编译classpath有效		对于测试classpath有效		对于运行classpath有效		例子
 compile		Y						Y						Y						spring-core
@@ -224,16 +224,16 @@ system		Y						Y						-						本地的,Maven仓库外的类库
 
 maven中央仓库中找jar包
 ==============
-https://mvnrepository.com/
-在里搜索想要的jar包，在搜索列表中，点击进去，然后点击你想要的版本。
-里面有dependency示例代码，拷贝即可
+https://mvnrepository.com/  
+在里面搜索想要的jar包，在搜索列表中，点击进去，然后点击你想要的版本。  
+里面有dependency示例代码，拷贝即可  
 
 
 
 maven工程运行环境修改
 ==============
-即更改运行maven工程所需的jdk、tomcat等
-通过更改pom.xml中的build实现
+即更改运行maven工程所需的jdk、tomcat等  
+通过更改pom.xml中的build实现  
 ```xml
 <build>
 	<plugins>
